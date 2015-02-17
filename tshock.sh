@@ -16,7 +16,7 @@ RESTPORT="7878"
 ##########
 usage () {
 cat << EOF
-Usage:"
+Usage:
     tshock [-g PORT] [-p PORT] [-d BASEDIR] start NAME
     tshock attach NAME
     tshock stop NAME

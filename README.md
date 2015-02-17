@@ -40,7 +40,7 @@ start the server with custom options as listed below:
 
 ```bash
 $ ./tshock.sh
-Usage:"
+Usage:
     tshock [-g PORT] [-p PORT] [-d BASEDIR] start NAME
     tshock attach NAME
     tshock stop NAME
