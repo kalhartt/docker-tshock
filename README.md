@@ -16,13 +16,41 @@ docker pull kalhartt/tshock:latest
 ## Quick Start
 --------------
 
-The image is ready to go and will start a Terraria server with a medium sized
-map. The Terraria server is open on port 7777 and the TShock rest-api is
-available on port 7878. The server runs with all default settings, except the
-rest-api is enabled.
+A bash script is included to help launch and manage tshock servers using this
+container. Note the script requires `expect` to be installed, and the running
+user must have docker permissions. To start a server just do the following:
 
 ```bash
-docker run --name='tshock' -it -p 7777:7777 -p 7878:7878 kalhartt/tshock:latest
+wget https://raw.githubusercontent.com/kalhartt/docker-tshock/master/tshock.sh
+chmod +x tshock.sh
+
+# Start the server
+./tshock.sh start servername
+
+# Attach the server (ctrl-p ctrl-q to detach)
+./tshock.sh attach servername
+
+# stop the server
+./tshock.sh stop servername
+```
+
+Where `servername` is a name of your choice. This will create a directory at
+`$HOME/servername` to store your world files, logs, and config files. You can
+start the server with custom options as listed below:
+
+```bash
+$ ./tshock.sh
+Usage:"
+    tshock [-g PORT] [-p PORT] [-d BASEDIR] start NAME
+    tshock attach NAME
+    tshock stop NAME
+
+Options:
+    NAME        Name of the docker container
+    -d BASEDIR  Directory for mounted volumes (default: $HOME/NAME)
+    -p PORT     Port to bind terraria server to (default: 7777)
+
+$ ./tshock -p 1234 -d /abs/path/to/server start myserver
 ```
 
 ## Advanced Usage
