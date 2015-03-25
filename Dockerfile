@@ -8,8 +8,9 @@ RUN apt-get -qq update && \
     apt-get -qqy install unzip
 
 # Download and setup TShock
-RUN curl -sL https://github.com/NyxStudios/TShock/releases/download/v4.2400/TShock.4.2.4.0128.zip > /tmp/TShock.4.2.4.0128.zip && \
-    unzip /tmp/TShock.4.2.4.0128.zip -d /opt/tshock
+RUN curl -sL https://github.com/NyxStudios/TShock/releases/download/v4.2.5/tshock_release.zip > /tmp/tshock_release.zip && \
+    unzip /tmp/tshock_release.zip -d /opt/tshock
+
 COPY config.json /opt/tshock/tshock/config.json
 
 
