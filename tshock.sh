@@ -2,7 +2,7 @@
 ##########
 # Default Options
 ##########
-IMAGE="kalhartt/tshock:latest"
+IMAGE="mark2dot0/tshock:latest"
 CONTAINER=""
 BASEDIR=""
 WORLD="world0.wld"
